@@ -1,11 +1,54 @@
-# See https://www.dartlang.org/guides/libraries/private-files
-
-# Files and directories created by pub
+# Flutter/Dart related
 .dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
 .packages
 build/
-# If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
+
+# IntelliJ related
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code related
+.vscode/
+
+# macOS related
+.DS_Store
+
+# Android related
+*.jks
+*.keystore
+.android/
+app/build/
+
+# iOS related
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.*
+xcuserdata/
+DerivedData/
+*.xcworkspace
+
+# Web related
+web/.dart_tool/
+
+# Coverage related
+coverage/
+
+# Linux related
+linux/flutter/ephemeral/
+
+# Windows related
+windows/flutter/ephemeral/
+
+# Misc
+*.log
+.pub-cache/
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
