@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- **auth** directory in both **lib** and **test** directories
+- Feature
+  - **Auth**
+    - **auth** directory in both **lib** and **test** directories
+    - First implementation of dumb feature to test overall architecture flow
+    - Write first unit tests and mocks to validate testing setup and architecture
 - Environment variable management
 - **test** directory that mirrors the **lib** directory
 - **failure.dart** file in **lib/core/error** directory
