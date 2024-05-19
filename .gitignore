@@ -1,3 +1,6 @@
+# Environment related
+*.env
+
 # Flutter/Dart related
 .dart_tool/
 .flutter-plugins
