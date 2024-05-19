@@ -4,12 +4,12 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
+<div style="text-align: center">
     <a href="https://github.com/othneildrew/Best-README-Template">
         <img src="@images/kwadra-logo-nobg.png" alt="Logo" width="80" height="80">
     </a>
-    <h3 align="center">KWADRA UI</h3>
-    <p align="center">
+    <h3 style="text-align: center">KWADRA UI</h3>
+    <p style="text-align: center">
         UI Pillar of Kwadra Project
     </p>
 </div>
@@ -38,16 +38,21 @@
 
 This project is one of the pillars of the Kwadra project. Kwadra aims to focus on developing a fullstack demo project that will integrate IOT, AI to a more classic fullstack project that includes API and UI components.
 
-UI content:
+### UI content:
 * TBD
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-- Flutter 3.22.0
-- Dart 3.4.0
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+#### Core
+- [Flutter 3.22.0](https://flutter.dev/)
+- [Dart 3.4.0](https://dart.dev/)
+
+#### Packages
+***See dependencies and dev_dependencies in pubspec.yaml***
+
+<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
