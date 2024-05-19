@@ -1,28 +1,33 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kwadra/core/error/failure.dart';
-import 'package:kwadra/features/auth/data/data_sources/kapi_auth_data_source.dart';
-import 'package:kwadra/features/auth/data/repositories/auth_repository_kapi.dart';
+import 'package:kwadra/features/auth/data/data_sources/firebase_auth_data_source.dart';
+import 'package:kwadra/features/auth/data/repositories/auth_repository_firebase.dart';
 import 'package:kwadra/features/auth/domain/entities/sign_in_response.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockKapiAuthDataSource extends Mock implements KapiAuthDataSource {}
+class MockFirebaseAuthDataSource extends Mock
+    implements FirebaseAuthDataSource {}
+
+class MockUser extends Mock implements User {}
 
 void main() {
   group('AuthRepositoryKapi', () {
-    late AuthRepositoryKwadraApi authRepositoryKwadraApi;
-    late KapiAuthDataSource mockKapiAuthDataSource;
+    late AuthRepositoryFirebase authRepositoryKwadraApi;
+    late FirebaseAuthDataSource mockKapiAuthDataSource;
+    late User mockUser;
 
     setUpAll(() {
-      mockKapiAuthDataSource = MockKapiAuthDataSource();
-      authRepositoryKwadraApi = AuthRepositoryKwadraApi(mockKapiAuthDataSource);
+      mockKapiAuthDataSource = MockFirebaseAuthDataSource();
+      authRepositoryKwadraApi = AuthRepositoryFirebase(mockKapiAuthDataSource);
+      mockUser = MockUser();
     });
 
     test('should call once and return success', () async {
       // arrange
       when(() => mockKapiAuthDataSource.signInWithEmailAndPassword(
-              'valid@mail.com', 'password'))
-          .thenAnswer((_) async => 'Sign in success');
+          'valid@mail.com', 'password')).thenAnswer((_) async => mockUser);
 
       // act
       final result = await authRepositoryKwadraApi.signInWithEmailAndPassword(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1063036032725",
+    "project_id": "kwadra-flutter",
+    "storage_bucket": "kwadra-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063036032725:android:f6ff18779975ae9efa345c",
+        "android_client_info": {
+          "package_name": "io.nikoden.kwadra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-0q-550dSwph2sDqO96aWNcadL3egQPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

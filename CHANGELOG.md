@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - Feature
+  - Auth
+    - Implement **Firebase** and configure for all platforms
+    - Configure the sign in process using now firebase-authentication
+### Changed
+- Feature
+  - Auth
+    - Update data source and repository for auth implementation
+    - Update unit tests for auth feature
+### Removed
+- Feature
+  - Auth
+    - Remove kwadra-api implementation for auth data source and repository
+
+## [0.2.0] - 2024-05-19
+### Added
+- Feature
   - **Auth**
     - **auth** directory in both **lib** and **test** directories
     - First implementation of dumb feature to test overall architecture flow
@@ -55,6 +71,7 @@ All notable changes to this project will be documented in this file.
 - Unnecessary content in **main.dart**
 - Unnecessary content in **pubspec.yaml**
 
+[0.2.0]: https://github.com/nikoden-io/Kwadra-UI/tree/0.2.0
 [0.1.0]: https://github.com/nikoden-io/Kwadra-UI/tree/0.1.0
 
 --- 

@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
-import 'package:kwadra/features/auth/data/data_sources/kapi_auth_data_source.dart';
+import 'package:kwadra/features/auth/data/data_sources/firebase_auth_data_source.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../domain/entities/sign_in_response.dart';
 import '../../domain/repositories/auth_repository.dart';
 
-class AuthRepositoryKwadraApi implements AuthRepository {
-  final KapiAuthDataSource _kapiAuthDataSource;
+class AuthRepositoryFirebase implements AuthRepository {
+  final FirebaseAuthDataSource firebaseAuthDataSource;
   final validEmailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
 
-  AuthRepositoryKwadraApi(this._kapiAuthDataSource);
+  AuthRepositoryFirebase(this.firebaseAuthDataSource);
 
   @override
   Future<Either<Failure, SignInResponse>> signInWithEmailAndPassword(
@@ -23,10 +23,10 @@ class AuthRepositoryKwadraApi implements AuthRepository {
         return const Left(ParamsFailure("Invalid email format"));
       }
 
-      String response =
-          await _kapiAuthDataSource.signInWithEmailAndPassword(email, password);
-      if (response == 'Sign in failed') return Left(ParamsFailure(response));
-      return Right(SignInResponse(response));
+      final user = await firebaseAuthDataSource.signInWithEmailAndPassword(
+          email, password);
+      if (user == null) return const Left(ParamsFailure("Sign in failed"));
+      return const Right(SignInResponse('Sign in success'));
     } catch (error) {
       return Left(ParamsFailure(error.toString()));
     }
