@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- **auth** directory in both **lib** and **test** directories
+- Environment variable management
+- **test** directory that mirrors the **lib** directory
+- **failure.dart** file in **lib/core/error** directory
+  - Include a basic set of specific failures (to be upgraded) 
+- **exceptions.dart** file in **lib/core/error** directory
+  - Include a first specific server exception (to be upgraded)
+- Packages:
+  - **bloc_test** 
+  - **build_runner** 
+  - **dartz** 
+  - **equatable** 
+  - **flutter_bloc** 
+  - **flutter_dotenv** 
+  - **flutter_test** 
+  - **http** 
+  - **json_serializable** 
+  - **mocktail** 
+
+### Changed
+- **lib** directory structure
+- Android app icons
+- iOS app icons 
+
 
 
 ## [0.1.0] - 2024-05-18

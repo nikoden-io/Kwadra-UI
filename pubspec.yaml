@@ -1,4 +1,4 @@
-name: kwadra_ui
+name: kwadra
 description: "The UI pillar of Kwadra project"
 publish_to: 'none'
 version: 0.1.0+1
@@ -9,6 +9,14 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  mocktail: ^1.0.3
+  bloc_test: ^9.1.7
+  http: ^1.2.1
+  build_runner: ^2.4.10
+  json_serializable: ^6.8.0
+  dartz: ^0.10.1
+  equatable: ^2.0.5
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +25,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - .env
