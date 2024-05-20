@@ -11,19 +11,30 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Sign Up')),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Sign Up Page'),
-            if (email.isNotEmpty) Text('Email: $email'),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(labelText: 'Email'),
+            ),
+            TextField(
+              controller: passwordController,
+              decoration: const InputDecoration(labelText: 'Password'),
+              obscureText: true,
+            ),
             ElevatedButton(
               key: const Key('signUpButton'),
               onPressed: () {
-                BlocProvider.of<AuthBloc>(context)
-                    .add(SignUpRequested(email, 'password123'));
+                BlocProvider.of<AuthBloc>(context).add(SignUpRequested(
+                  emailController.text,
+                  passwordController.text,
+                ));
               },
               child: const Text('Sign Up'),
             ),

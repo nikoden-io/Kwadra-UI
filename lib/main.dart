@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'core/services/app_bloc_observer.dart';
 import 'core/services/app_locator.dart';
@@ -14,6 +15,11 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  const storage = FlutterSecureStorage();
+  await storage.write(key: 'initKey', value: 'Secure Storage Initialized');
+  if (kDebugMode) {
+    print(await storage.read(key: 'initKey'));
+  }
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,

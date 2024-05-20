@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
   - Auth
     - Configure the sign in with email/password process
     - Configure the sign-up with email/password process
+- **flutter_secure_storage** package
 - Implement **Firebase** and configure for all platforms
 
 ### Changed

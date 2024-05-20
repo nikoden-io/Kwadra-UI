@@ -26,6 +26,7 @@ class AuthRepositoryFirebase implements AuthRepository {
       final user = await firebaseAuthDataSource.signInWithEmailAndPassword(
           email, password);
       if (user == null) return const Left(ParamsFailure("Sign in failed"));
+
       return const Right(AuthResponse('Sign in success'));
     } catch (error) {
       return Left(ParamsFailure(error.toString()));
