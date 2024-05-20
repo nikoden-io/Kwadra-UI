@@ -6,13 +6,16 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Feature
   - Auth
-    - Implement **Firebase** and configure for all platforms
-    - Configure the sign in process using now firebase-authentication
+    - Configure the sign in with email/password process
+    - Configure the sign-up with email/password process
+- Implement **Firebase** and configure for all platforms
+
 ### Changed
 - Feature
   - Auth
     - Update data source and repository for auth implementation
     - Update unit tests for auth feature
+    
 ### Removed
 - Feature
   - Auth

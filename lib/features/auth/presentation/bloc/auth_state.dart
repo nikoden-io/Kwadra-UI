@@ -16,7 +16,7 @@ class AuthLoading extends AuthState {
 }
 
 class AuthSuccess extends AuthState {
-  final SignInResponse response;
+  final AuthResponse response;
 
   const AuthSuccess(this.response) : super(isLoading: false);
 

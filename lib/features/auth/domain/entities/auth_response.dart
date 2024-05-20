@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-class SignInResponse extends Equatable {
+class AuthResponse extends Equatable {
   final String message;
 
-  const SignInResponse(this.message);
+  const AuthResponse(this.message);
 
   @override
   List<Object> get props => [message];

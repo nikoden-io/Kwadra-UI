@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kwadra/core/error/failure.dart';
-import 'package:kwadra/features/auth/domain/entities/sign_in_response.dart';
+import 'package:kwadra/features/auth/domain/entities/auth_response.dart';
 import 'package:kwadra/features/auth/domain/repositories/auth_repository.dart';
 import 'package:kwadra/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:mocktail/mocktail.dart';
@@ -25,8 +25,10 @@ void main() {
   group('AuthBloc', () {
     const email = 'test@example.com';
     const password = 'password123';
-    const signInResponse = SignInResponse('Test User');
+    const signInResponse = AuthResponse('Test User');
+    const signUpResponse = AuthResponse('Test User');
 
+    //// SIGN IN ////
     blocTest<AuthBloc, AuthState>(
       'emits [AuthLoading, AuthSuccess] when signInWithEmailAndPassword succeeds',
       build: () {
@@ -50,6 +52,36 @@ void main() {
         return authBloc;
       },
       act: (bloc) => bloc.add(const SignInRequested(email, password)),
+      expect: () => [
+        const AuthLoading(),
+        const AuthFailure('Invalid credentials'),
+      ],
+    );
+
+    //// SIGN UP ////
+    blocTest<AuthBloc, AuthState>(
+      'emits [AuthLoading, AuthSuccess] when signUpWithEmailAndPassword succeeds',
+      build: () {
+        when(() => authRepository.signUpWithEmailAndPassword(email, password))
+            .thenAnswer((_) async => const Right(signUpResponse));
+        return authBloc;
+      },
+      act: (bloc) => bloc.add(const SignUpRequested(email, password)),
+      expect: () => [
+        const AuthLoading(),
+        const AuthSuccess(signUpResponse),
+      ],
+    );
+
+    blocTest<AuthBloc, AuthState>(
+      'emits [AuthLoading, AuthFailure] when signUpWithEmailAndPassword fails',
+      build: () {
+        when(() => authRepository.signUpWithEmailAndPassword(email, password))
+            .thenAnswer(
+                (_) async => const Left(ParamsFailure('Invalid credentials')));
+        return authBloc;
+      },
+      act: (bloc) => bloc.add(const SignUpRequested(email, password)),
       expect: () => [
         const AuthLoading(),
         const AuthFailure('Invalid credentials'),
